@@ -1,0 +1,31 @@
+This file describes all steps of exection for THM room (Room 404)
+Difficulty - Very Easy
+
+Target IP: http://10.113.181.14:8080
+
+Opens up a website with index page with nothing than few header buttons that don't work
+and Reserve option which sent you to "error 404 page not found"
+
+I scanned the IP with nmap using
+` sudo nmap -T4 -p- -A -oN nmap.txt 10.113.181.14 `
+
+exposed /.git/ repository was found!
+
+I entered this - http://10.113.181.14:8080/.git/
+Inside it included some directories. Firstly I decided to download them all and
+open everything via vs code. Nothing interesting.
+
+I looked up a bit when I found a tool called git-dumper
+
+Installation via
+` pipx install git-dumper `
+
+Run it with
+` git-dumper http://10.113.181.14:8080/.git/ recovered `
+
+It creates a folder called recovered
+Inside there were files
+
+app.js     -> Nothing interesting
+index.html -> Nothing interesting
+README.md  -> FLAG CAPTURED
