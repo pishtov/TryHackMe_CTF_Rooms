@@ -32,7 +32,7 @@ Decided to decrypt it via terminal
 
 Output was
 <details>
-<summary> THM{V3r@s_aCC0unt_h4s_b33n_f0und!} </summary>
+THM{V3r@s_aCC0unt_h4s_b33n_f0und!}
 </details>
 
 FLAG FOUND
