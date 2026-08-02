@@ -30,10 +30,12 @@ VEhNe1YzckBzX2FD QzB1bnRfaDRzX2Iz M25fZjB1bmQhfQ==
 Decided to decrypt it via terminal
 ` echo 'VEhNe1YzckBzX2FDQzB1bnRfaDRzX2IzM25fZjB1bmQhfQ==' | base64 -d `
 
-Output was
-<SPOILER ALERT!>
+<details>
+<summary>Spoiler Alert!</summary>
+
 THM{V3r@s_aCC0unt_h4s_b33n_f0und!}
-</SPOILER ALERT!>
+
+</details>
 
 FLAG FOUND
 Room completed.
