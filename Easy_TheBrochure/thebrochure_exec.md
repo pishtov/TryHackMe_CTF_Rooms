@@ -31,7 +31,7 @@ Decided to decrypt it via terminal
 ` echo 'VEhNe1YzckBzX2FDQzB1bnRfaDRzX2IzM25fZjB1bmQhfQ==' | base64 -d `
 
 Output was
-<details>
+<details> SPOILER ALERT!
 THM{V3r@s_aCC0unt_h4s_b33n_f0und!}
 </details>
 
