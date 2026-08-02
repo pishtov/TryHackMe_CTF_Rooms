@@ -91,7 +91,13 @@ Reading Sup3rS3cretPickl3Ingred.txt:
 
 (NOTE: I used less instead of cat, because I didn't have right access)
 
-#1 FLAG FOUND / ingredient: mr. meeseek hair
+#1 FLAG FOUND / ingredient:
+<details>
+<summary>Spoiler Alert!</summary>
+
+mr. meeseek hair
+
+</details>
 
 Reading clue.txt:
 
@@ -114,7 +120,13 @@ Reading the file:
 
 ` less "/home/rick/second ingredients" `
 
-#2 FLAG FOUND / ingredient: jerry tear
+#2 FLAG FOUND / ingredient:
+<details>
+<summary>Spoiler Alert!</summary>
+
+jerry tear
+
+</details>
 
 While checking the website source, I found another hidden comment:
 
@@ -163,7 +175,13 @@ and decided to filter search for remaining flags:
 ` sudo find / -name "*.txt" 2>/dev/null `
 
 This is where I got a file named 3rd.txt
-#3 FLAG FOUND / ingredient: fleeb juice
+#3 FLAG FOUND / ingredient:
+<details>
+<summary>Spoiler Alert!</summary>
+
+fleeb juice
+
+</details>
 
 
 Room completed.
