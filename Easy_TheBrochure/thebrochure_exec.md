@@ -30,8 +30,8 @@ VEhNe1YzckBzX2FD QzB1bnRfaDRzX2Iz M25fZjB1bmQhfQ==
 Decided to decrypt it via terminal
 ` echo 'VEhNe1YzckBzX2FDQzB1bnRfaDRzX2IzM25fZjB1bmQhfQ==' | base64 -d `
 
-<details>
 Output was
+<details>
 <summary> THM{V3r@s_aCC0unt_h4s_b33n_f0und!} </summary>
 </details>
 
