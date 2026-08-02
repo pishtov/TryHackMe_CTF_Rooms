@@ -1,11 +1,7 @@
-In this repository, all there are text files, maybe some other stuff as well.
+In this repository, there are only text files and attachments needed for completing CTF rooms.
 They explain every single step of what I did, how I did it and if I completed TryHackMe's
-capture the flag (CTF) rooms. (PERSONAL EDUCATION ONLY)
+capture the flag (CTF) challenges. (PERSONAL EDUCATION ONLY)
 
+SOME FOLDERS MAY CONTAIN REVEALED FLAGS SO DO NOT OPEN [room_name]_exec.txt FILES 
+BEFORE YOU HAVE COMPLETED THE CHALLENGE. -> SPOILER ALERT!
 ---
-
-The flag itself is NOT included due to privacy and anti-cheating reasons. Only step by step execution.
-
----
-
-!DO NOT REDISTRIBUTE!
