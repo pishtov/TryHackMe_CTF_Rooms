@@ -16,11 +16,18 @@ receive data over the internet. It uses a publish/subscribe model, where devices
 other devices subscribe to topics to receive those messages. It is fast, efficient, and works well on low-bandwidth
 networks.
 
-With the nmap scan we did, we see some publishers sending information from
-basic IoT devices, like sensors, appliances, etc:
+With the nmap scan we did, we see some
+publishers sending information from
+basic IoT devices, like sensors,
+appliances, etc:
 
-kitchen/toaster: {"id":11066945492750934780,"in_use":true,"temperature":156.29333,"toast_time":265}
-storage/thermostat: {"id":429708233957370398,"temperature":23.06692}
+kitchen/toaster:
+{"id":11066945492750934780,"in_use":true,"
+emperature":156.29333,"toast_time":265}
+
+storage/thermostat:
+{"id":429708233957370398,"temperature":23.0
+6692}
 
 and more...
 
@@ -48,10 +55,15 @@ Let's decode it via echo 'hash' | base64 -d
 We get:
 
 {
-  "id":"cdd1b1c0-1c40-4b0f-8e22-61b357548b7d",
-  "registered_commands":["HELP","CMD","SYS"],
-  "pub_topic":"U4vyqNlQtf/0vozmaZyLT/15H9TF6CHg/pub",
-  "sub_topic":"XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub"
+  "id":"cdd1b1c0-1c40-4b0f-8e22-
+61b357548b7d",
+  "registered_commands":
+["HELP","CMD","SYS"],
+  
+"pub_topic":"U4vyqNlQtf/0vozmaZyLT/15H9TF6C
+Hg/pub",
+"sub_topic":"XD2rfR9Bez/GqMpRSEobh/TvLQehMg
+0E/sub"
 }
 
 That seems to be configuration or discovery response that tells us how to interact with the service.
