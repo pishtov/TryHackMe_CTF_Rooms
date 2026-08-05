@@ -60,9 +60,12 @@ Get-ComputerInfo -Property "Os*"
 
 ### Answer
 
-```
-Windows Server 2016
-```
+<details>
+<summary>Spoiler Alert!</summary>
+
+Windows server 2016
+
+</details>
 
 ---
 
@@ -86,9 +89,12 @@ The most recent login belonged to:
 
 ### Answer
 
-```
+<details>
+<summary>Spoiler Alert!</summary>
+
 Administrator
-```
+
+</details>
 
 ---
 
@@ -106,9 +112,12 @@ The output displayed John's last login.
 
 ### Answer
 
-```
+<details>
+<summary>Spoiler Alert!</summary>
+
 03/02/2019 5:48:32 PM
-```
+
+</details>
 
 ---
 
@@ -118,9 +127,12 @@ The output displayed John's last login.
 
 I first inspected the Windows hosts file.
 
-```
+<details>
+<summary>Spoiler Alert!</summary>
+
 C:\Windows\System32\drivers\etc\hosts
-```
+
+</details>
 
 Several suspicious entries redirected domains to local addresses.
 
@@ -151,10 +163,12 @@ Inspecting it revealed the IP address contacted at startup.
 
 ### Answer
 
-```
-10.34.2.3
-```
+<details>
+<summary>Spoiler Alert!</summary>
 
+10.34.2.3
+
+</details>
 ---
 
 # Question 5
@@ -169,9 +183,13 @@ Get-LocalGroupMember -Group "Administrators"
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 Jenny, Guest
 ```
+</details>
 
 ---
 
@@ -195,9 +213,13 @@ Among the remaining tasks, one appeared malicious.
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 Clean file system
 ```
+</details>
 
 ---
 
@@ -219,9 +241,13 @@ $task.Actions
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 nc.ps1
 ```
+</details>
 
 ---
 
@@ -233,9 +259,13 @@ The listening port appeared in the **Arguments** field from the previous command
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 1348
 ```
+</details>
 
 ---
 
@@ -249,9 +279,13 @@ net user Jenny | findstr "Last"
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 Never
 ```
+</details>
 
 ---
 
@@ -269,9 +303,13 @@ Several recently created folders shared the same date, revealing when the compro
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 03/02/2019
 ```
+</details>
 
 ---
 
@@ -296,9 +334,13 @@ I reviewed the earliest **Security Group Management** event.
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 03/02/2019 4:04:47 PM
 ```
+</details>
 
 ---
 
@@ -328,9 +370,14 @@ The document referenced the password dumping utility.
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 mimikatz
 ```
+</details>
+
 
 ---
 
@@ -350,9 +397,13 @@ I compared the address against a legitimate DNS lookup from my host machine and 
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 76.32.97.132
 ```
+</details>
 
 ---
 
@@ -370,9 +421,13 @@ Inside the web root I found two Java Server Pages files.
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 .jsp
 ```
+</details>
 
 ---
 
@@ -408,9 +463,13 @@ Opening the rule and checking the **Protocols and Ports** tab revealed the confi
 
 ### Answer
 
+<details>
+<summary>Spoiler Alert!</summary>
+
 ```
 1337
 ```
+</details>
 
 ---
 
@@ -421,7 +480,10 @@ Opening the rule and checking the **Protocols and Ports** tab revealed the confi
 Returning to the hosts file showed that Google's domain had been redirected to the attacker's server.
 
 ### Answer
+<details>
+<summary>Spoiler Alert!</summary>
 
 ```
 google.com
 ```
+</details>
