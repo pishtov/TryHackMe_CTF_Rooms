@@ -112,7 +112,12 @@ The user flag was found.
 
 #1 FLAG FOUND / user flag:
 
-Retrieved successfully.
+<details>
+<summary>Spoiler Alert!</summary>
+
+THM{y4ml_pl4yl1st_pwns_th3_b34ch}
+
+</details>
 
 After obtaining a shell as the **bartender** user, I started looking for a way to escalate privileges.
 
@@ -169,7 +174,5 @@ I then used the discovered credentials to obtain root access.
 After becoming root, I retrieved the root flag.
 
 #2 FLAG FOUND / root flag:
-
-Retrieved successfully.
 
 Room completed.
