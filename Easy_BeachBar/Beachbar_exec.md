@@ -175,4 +175,11 @@ After becoming root, I retrieved the root flag.
 
 #2 FLAG FOUND / root flag:
 
+<details>
+<summary>Spoiler Alert!</summary>
+
+THM{cr3d3nt14l_r3us3_4t_th3_b34ch_b4r}
+
+</details>
+
 Room completed.
