@@ -1,9 +1,19 @@
 This file describes all steps of execution for THM room (Light)
+It's a room where we exploited an SQL injection in a SQLite database to retrieve the credentials for the admin user and a flag.
 Difficulty - Easy
 
 MACHINE-IP: 10.112.142.122
 PORT: 1337
 username: smokey
+password: vYQ5ngPpw8AdUmL
+
+Difficulty - Easy
+
+MACHINE-IP: 10.112.142.122
+PORT: 1337
+
+username: smokey
+
 password: vYQ5ngPpw8AdUmL
 
 I connected to the service using netcat:
@@ -15,18 +25,10 @@ The application displayed:
 Welcome to the Light database!
 Please enter your username:
 
-The room instructions suggested using the username:
-
-smokey
-
-I entered it and received the password for the user:
+The room instructions suggested using the username smokey. I entered it and received the password for the user:
 
 Please enter your username: smokey
-
-Output:
-
 Password: vYQ5ngPpw8AdUmL
-
 Discovering the SQL Injection
 
 Since the application is a database application, I started testing for SQL injection.
@@ -47,7 +49,7 @@ I then tried a UNION-based SQL injection and attempted to comment out the rest o
 
 However, the application returned:
 
-For strange reasons I can't explain, any input containing /\*, -- or, %0b is not allowed :)
+For strange reasons I can't explain, any input containing /*, -- or, %0b is not allowed :)
 
 This showed that some characters and SQL comment sequences were being filtered.
 
@@ -104,9 +106,6 @@ I combined this with the previous payload:
 The injection worked successfully:
 
 Please enter your username: ' Union Select 1 '
-
-Output:
-
 Password: 1
 
 At this point, I had a working UNION-based SQL injection.
@@ -161,13 +160,7 @@ id INTEGER PRIMARY KEY,
 username TEXT,
 password INTEGER)
 
-The database contained two tables:
-
-usertable
-
-and
-
-admintable
+The database contained two tables: usertable and admintable.
 
 Both tables contained:
 
