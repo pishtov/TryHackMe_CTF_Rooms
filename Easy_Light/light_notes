@@ -1,0 +1,6 @@
+nc 10.112.142.122 1337
+Welcome to the Light database!
+Please enter your username: smokey
+Password: vYQ5ngPpw8AdUmL
+
+xfreerdp /v:10.112.142.122:1337 /u:smokey /p:vYQ5ngPpw8AdUmL /dynamic-resolution
