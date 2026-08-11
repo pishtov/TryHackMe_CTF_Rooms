@@ -1,20 +1,12 @@
 This file describes all steps of execution for THM room (Light)
 It's a room where we exploited an SQL injection in a SQLite database to retrieve the credentials for the admin user and a flag.
 Difficulty - Easy
-
+---
 MACHINE-IP: 10.112.142.122
 PORT: 1337
 username: smokey
 password: vYQ5ngPpw8AdUmL
-
-Difficulty - Easy
-
-MACHINE-IP: 10.112.142.122
-PORT: 1337
-
-username: smokey
-
-password: vYQ5ngPpw8AdUmL
+---
 
 I connected to the service using netcat:
 
@@ -22,13 +14,17 @@ rlwrap nc 10.10.67.194 1337
 
 The application displayed:
 
+```
 Welcome to the Light database!
 Please enter your username:
+```
 
-The room instructions suggested using the username smokey. I entered it and received the password for the user:
+The room instructions suggested using the username ```smokey```. I entered it and received the password for the user:
 
+```
 Please enter your username: smokey
 Password: vYQ5ngPpw8AdUmL
+```
 Discovering the SQL Injection
 
 Since the application is a database application, I started testing for SQL injection.
