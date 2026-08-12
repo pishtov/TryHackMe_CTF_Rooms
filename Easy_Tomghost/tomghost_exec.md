@@ -466,6 +466,13 @@ Privilege Escalation
         v
 root
 ```
+<details>
+<summary>Spoiler Alert!</summary>
+
+THM{GhostCat_1s_so_cr4sy}
+
+</details>
+
 
 ---
 
