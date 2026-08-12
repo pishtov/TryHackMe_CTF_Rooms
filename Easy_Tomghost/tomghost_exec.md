@@ -95,7 +95,7 @@ Once the machine has started, note the assigned IP address.
 I will refer to the target as:
 
 ```text
-<machine-ip>
+10.113.184.167
 ```
 
 ---
@@ -105,7 +105,7 @@ I will refer to the target as:
 I started with an Nmap scan to identify the services running on the target.
 
 ```bash
-nmap -A -Pn <machine-ip>
+nmap -A -Pn 10.113.184.167
 ```
 
 The scan revealed several services, including SSH and the AJP connector.
@@ -133,7 +133,7 @@ One commonly referenced proof-of-concept is available on Exploit Database:
 After downloading the exploit, I ran it against the AJP service:
 
 ```bash
-python2 48143.py -p 8009 <machine-ip>
+python2 48143.py -p 8009 10.113.184.167
 ```
 
 The exploit successfully interacted with the vulnerable AJP connector.
@@ -156,7 +156,7 @@ From the Nmap scan, we already knew that SSH was running on port `22`.
 I therefore tried the discovered credentials against SSH:
 
 ```bash
-ssh skyfuck@<machine-ip>
+ssh skyfuck@10.113.184.167
 ```
 
 After entering the password, I successfully obtained a shell.
@@ -279,7 +279,7 @@ The goal was to recover the password contained inside `credential.pgp`.
 I used SFTP to transfer the files to my local machine:
 
 ```bash
-sftp skyfuck@<machine-ip>
+sftp skyfuck@<10.113.184.167>
 ```
 
 Once connected, I downloaded the files:
