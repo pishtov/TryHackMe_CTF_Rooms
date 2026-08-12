@@ -213,6 +213,13 @@ Listing the files revealed:
 user.txt
 ```
 
+<details>
+<summary>Spoiler Alert!</summary>
+
+THM{GhostCat_1s_so_cr4sy}
+
+</details>
+
 I checked the permissions:
 
 ```bash
@@ -469,7 +476,7 @@ root
 <details>
 <summary>Spoiler Alert!</summary>
 
-THM{GhostCat_1s_so_cr4sy}
+THM{Z1P_1S_FAKE}
 
 </details>
 
