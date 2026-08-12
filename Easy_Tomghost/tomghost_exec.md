@@ -142,7 +142,7 @@ The response revealed credentials:
 
 ```text
 username: skyfuck
-password: <redacted>
+password: 87302811k1k1dg1ksalks
 ```
 
 At this point, we had valid credentials that could potentially be used to access another service.
