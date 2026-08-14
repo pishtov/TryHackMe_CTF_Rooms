@@ -227,7 +227,8 @@ The payload I used was:
 The application returned the administrator credentials and the flag:
 
 ```
-Password: Tr[REDACTED]in:ma[REDACTED]17,flag:THM{SQ[REDACTED]O?}
+Username:TryHackMeAdmin Password:mamZtAuMlrsEy5bp6q17
+flag:THM{SQLit3_InJ3cTion_is_SimplE_nO?}
 ```
 
 This revealed the admin username, admin password, and the room flag.
