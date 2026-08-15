@@ -98,9 +98,12 @@ After successfully registering and logging into the application, I obtained the 
 
 ### First Flag
 
-```text
+<details>
+<summary>Spoiler Alert!</summary>
+
 THM{4ec9806d7e1350270dc402ba870ccebb}
-```
+
+</details>
 
 ---
 
@@ -255,6 +258,13 @@ grep admin user.sql
 ```
 
 This revealed the administrator's email address.
+<details>
+<summary>Spoiler Alert!</summary>
+
+admin@searchme2023cms.grep.thm
+
+</details>
+
 
 ---
 
