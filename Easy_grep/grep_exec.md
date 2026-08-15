@@ -316,9 +316,12 @@ The main steps were:
 
 ### First Flag
 
-```text
+<details>
+<summary>Spoiler Alert!</summary>
+
 THM{4ec9806d7e1350270dc402ba870ccebb}
-```
+
+</details>
 
 ### User Flag
 
