@@ -321,14 +321,3 @@ The main steps were:
 15. Retrieve the final user flag.
 
 ---
-
-## Flags
-
-### First Flag
-
-<details>
-<summary>Spoiler Alert!</summary>
-
-THM{4ec9806d7e1350270dc402ba870ccebb}
-
-</details>
