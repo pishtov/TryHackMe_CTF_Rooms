@@ -294,6 +294,13 @@ Since I had already obtained the administrator's email address from `user.sql`, 
 
 The application returned the administrator's password.
 
+<details>
+<summary>Spoiler Alert!</summary>
+
+admin_tryhackme!
+
+</details>
+
 This allowed me to authenticate as the administrator and retrieve the final user flag.
 
 ---
