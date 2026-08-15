@@ -322,9 +322,3 @@ The main steps were:
 THM{4ec9806d7e1350270dc402ba870ccebb}
 
 </details>
-
-### User Flag
-
-```text
-[REDACTED / NOT PROVIDED]
-```
