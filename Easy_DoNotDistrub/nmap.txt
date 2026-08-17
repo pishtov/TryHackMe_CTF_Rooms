@@ -1,0 +1,37 @@
+# Nmap 7.99 scan initiated Mon Aug 17 17:50:09 2026 as: /usr/lib/nmap/nmap --privileged -T4 -p- -A -Pn -oN nmap.txt 10.112.171.99
+Nmap scan report for 10.112.171.99
+Host is up (0.042s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.18 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 fe:2f:54:07:75:50:9f:47:34:19:3f:43:1e:a5:a7:c0 (ECDSA)
+|_  256 50:43:69:e2:a0:55:6a:c6:dc:8c:d0:03:6c:96:fe:b2 (ED25519)
+80/tcp open  http    Node.js (Express middleware)
+|_http-title: Byte Lotus &mdash; Poolside
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.99%E=4%D=8/17%OT=22%CT=1%CU=36580%PV=Y%DS=3%DC=T%G=Y%TM=6A831FC
+OS:B%P=x86_64-pc-linux-gnu)SEQ(SP=104%GCD=1%ISR=10A%TI=Z%CI=Z%II=I%TS=21)SE
+OS:Q(SP=107%GCD=1%ISR=10A%TI=Z%CI=Z%TS=21)SEQ(SP=107%GCD=1%ISR=10A%TI=Z%CI=
+OS:Z%TS=22)SEQ(SP=107%GCD=2%ISR=103%TI=Z%CI=Z%TS=21)SEQ(SP=FB%GCD=1%ISR=10C
+OS:%TI=Z%CI=Z%II=I%TS=21)OPS(O1=M4E8ST11NW8%O2=M4E8ST11NW8%O3=M4E8NNT11NW8%
+OS:O4=M4E8ST11NW8%O5=M4E8ST11NW8%O6=M4E8ST11)WIN(W1=F4B3%W2=F4B3%W3=F4B3%W4
+OS:=F4B3%W5=F4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M4E8NNSNW8%CC=Y%Q=)T1(R
+OS:=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=
+OS:A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=
+OS:Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=A
+OS:R%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%R
+OS:UD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 3 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 554/tcp)
+HOP RTT      ADDRESS
+1   40.67 ms 192.168.128.1
+2   ...
+3   41.50 ms 10.112.171.99
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Aug 17 17:50:51 2026 -- 1 IP address (1 host up) scanned in 42.17 seconds
