@@ -122,7 +122,7 @@ I used Burp Suite's **Open Response in Browser** functionality to open the authe
 I then navigated to:
 
 ```text
-http://MACHINE-IP/staff
+http://10.112.171.99/staff
 ```
 
 The `/staff` endpoint was now accessible.
