@@ -153,12 +153,12 @@ After confirming the SSTI vulnerability, I used an EJS payload capable of execut
 
 I prepared a reverse shell connection back to my machine.
 
-For the listener, I used **Penelope**, although Netcat can also be used.
+For the listener, I used **netcat**
 
 I started the listener on my machine:
 
 ```bash
-python3 penelope.py 4444
+nc -nlvp 4444
 ```
 
 Before sending the payload, I determined my VPN interface IP address using:
