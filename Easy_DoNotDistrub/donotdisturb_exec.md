@@ -4,7 +4,7 @@ This file describes all steps of execution for the TryHackMe room **Do Not Distu
 
 The room involves web enumeration, NoSQL injection, session hijacking, EJS Server-Side Template Injection (SSTI), and Node.js debugging. We first bypass the login using a MongoDB NoSQL injection, access the staff panel, exploit an EJS SSTI vulnerability to obtain a reverse shell, and then abuse Node.js debugging functionality to access the raw filesystem and retrieve the root flag.
 
-Difficulty - Easy
+Difficulty - Medium
 
 ---
 
