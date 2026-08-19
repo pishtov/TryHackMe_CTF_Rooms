@@ -1,7 +1,3 @@
-You're right — you wanted the **first walkthrough's content rewritten in the concise, structured style of the second**, not a replacement walkthrough based on the second room.
-
-# CTF Walkthrough
-
 This challenge involves simple **web enumeration and credential discovery**. We start by checking `robots.txt`, discover a hidden directory, enumerate it for additional paths, and use a password found in `robots.txt` to access the administrator panel.
 
 ---
