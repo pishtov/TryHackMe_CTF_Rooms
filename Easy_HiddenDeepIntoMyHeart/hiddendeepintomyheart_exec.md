@@ -11,7 +11,8 @@ This challenge involves simple **web enumeration and credential discovery**.
 
 # Web Enumeration
 
-I started by checking:
+I started by running gobuster to find some hidden directories.
+Only robots.txt showed up for this target - http://10.112.137.19.5000
 
 ```text
 /robots.txt
