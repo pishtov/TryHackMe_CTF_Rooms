@@ -126,8 +126,15 @@ No brute-force tools were required — the challenge was simply relying on infor
 ---
 
 # Flag
+<details>
+<summary>Spoiler Alert!</summary>
 
-After logging in successfully, the flag was displayed directly on the administrator page.
+```text
+THM{l0v3_is_in_th3_r0b0ts_txt}
+```
+
+</details>
+
 
 ---
 
