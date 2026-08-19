@@ -1,0 +1,40 @@
+# Nmap 7.99 scan initiated Wed Aug 19 18:44:23 2026 as: /usr/lib/nmap/nmap --privileged -T4 -p- -A -Pn -oN nmap.txt 10.112.137.19
+Nmap scan report for 10.112.137.19
+Host is up (0.043s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 5f:58:85:89:d7:88:f5:4a:8f:62:a6:a1:ba:30:6f:78 (ECDSA)
+|_  256 b5:68:fe:1f:a9:51:8d:4e:26:ae:44:37:2a:1a:b1:a1 (ED25519)
+5000/tcp open  http    Werkzeug httpd 3.1.5 (Python 3.10.12)
+|_http-title: Love Letters Anonymous
+| http-robots.txt: 1 disallowed entry 
+|_/cupids_secret_vault/*
+|_http-server-header: Werkzeug/3.1.5 Python/3.10.12
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.99%E=4%D=8/19%OT=22%CT=1%CU=37473%PV=Y%DS=3%DC=T%G=Y%TM=6A85CF7
+OS:F%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=108%TI=Z%CI=Z%TS=A)SEQ(SP=1
+OS:03%GCD=1%ISR=10E%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=104%GCD=1%ISR=10C%TI=Z%CI=Z%
+OS:II=I%TS=A)SEQ(SP=106%GCD=1%ISR=109%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=107%GCD=1%
+OS:ISR=10C%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M4E8ST11NW7%O2=M4E8ST11NW7%O3=M4E8NNT
+OS:11NW7%O4=M4E8ST11NW7%O5=M4E8ST11NW7%O6=M4E8ST11)WIN(W1=F4B3%W2=F4B3%W3=F
+OS:4B3%W4=F4B3%W5=F4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M4E8NNSNW7%CC=Y%Q
+OS:=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%
+OS:W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=
+OS:)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=
+OS:S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RU
+OS:CK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 3 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 3389/tcp)
+HOP RTT      ADDRESS
+1   41.45 ms 192.168.128.1
+2   ...
+3   43.38 ms 10.112.137.19
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug 19 18:45:03 2026 -- 1 IP address (1 host up) scanned in 40.06 seconds
