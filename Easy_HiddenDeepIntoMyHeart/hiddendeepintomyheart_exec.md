@@ -1,5 +1,4 @@
-This challenge involves simple **web enumeration and credential discovery**. We start by checking `robots.txt`, discover a hidden directory, enumerate it for additional paths, and use a password found in `robots.txt` to access the administrator panel.
-
+This challenge involves simple **web enumeration and credential discovery**.
 ---
 
 # Machine IP
