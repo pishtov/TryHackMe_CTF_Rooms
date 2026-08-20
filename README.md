@@ -52,32 +52,6 @@ The collection will continue to grow as more rooms are completed.
 
 ---
 
-## 📚 Completed Rooms
-
-### 🟢 Easy
-
-| Room                                                      | Status |
-| --------------------------------------------------------- | :----: |
-| [BeachBar](./Easy_BeachBar)                               |    ✅   |
-| [Bugged](./Easy_Bugged)                                   |    ✅   |
-| [Hidden Deep Into My Heart](./Easy_HiddenDeepIntoMyHeart) |    ✅   |
-| [Investigating Windows](./Easy_InvestigatingWindows)      |    ✅   |
-| [Light](./Easy_Light)                                     |    ✅   |
-| [Pickle Rick](./Easy_PickleRick)                          |    ✅   |
-| [Room 404](./Easy_Room404)                                |    ✅   |
-| [The Brochure](./Easy_TheBrochure)                        |    ✅   |
-| [Tomghost](./Easy_Tomghost)                               |    ✅   |
-| [grep](./Easy_grep)                                       |    ✅   |
-
-### 🟠 Medium
-
-| Room                                    | Status |
-| --------------------------------------- | :----: |
-| [Do Not Disturb](./Medium_DoNotDisturb) |    ✅   |
-| [Domino](./Medium_Domino)               |    ✅   |
-
----
-
 ## 🚨 Spoiler Warning
 
 **These are complete solutions.**
