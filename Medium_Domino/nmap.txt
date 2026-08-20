@@ -1,0 +1,38 @@
+# Nmap 7.99 scan initiated Thu Aug 20 17:39:40 2026 as: /usr/lib/nmap/nmap --privileged -T4 -p- -A -Pn -oN nmap.txt 10.112.164.33
+Nmap scan report for 10.112.164.33
+Host is up (0.044s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 49:82:a7:66:73:9d:bd:ce:5d:09:83:b6:41:24:f3:0f (ECDSA)
+|_  256 46:c8:5b:f1:fd:81:2e:cd:82:e5:fd:b0:fb:dc:5c:8c (ED25519)
+80/tcp open  http    Apache httpd 2.4.58 ((Ubuntu))
+|_http-title: NexusCorp Portal
+|_http-server-header: Apache/2.4.58 (Ubuntu)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.99%E=4%D=8/20%OT=22%CT=1%CU=30387%PV=Y%DS=3%DC=T%G=Y%TM=6A8711D
+OS:2%P=x86_64-pc-linux-gnu)SEQ(SP=100%GCD=1%ISR=10E%TI=Z%CI=Z%TS=A)SEQ(SP=1
+OS:01%GCD=1%ISR=10A%TI=Z%CI=Z%TS=A)SEQ(SP=103%GCD=1%ISR=105%TI=Z%CI=Z%TS=A)
+OS:SEQ(SP=108%GCD=1%ISR=10D%TI=Z%CI=Z%TS=A)SEQ(SP=FF%GCD=1%ISR=10B%TI=Z%CI=
+OS:Z%II=I%TS=A)OPS(O1=M4E8ST11NW9%O2=M4E8ST11NW9%O3=M4E8NNT11NW9%O4=M4E8ST1
+OS:1NW9%O5=M4E8ST11NW9%O6=M4E8ST11)WIN(W1=F4B3%W2=F4B3%W3=F4B3%W4=F4B3%W5=F
+OS:4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M4E8NNSNW9%CC=Y%Q=)T1(R=Y%DF=Y%T=
+OS:40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%
+OS:O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=4
+OS:0%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%
+OS:Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=
+OS:Y%DFI=N%T=40%CD=S)
+
+Network Distance: 3 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 8080/tcp)
+HOP RTT      ADDRESS
+1   40.80 ms 192.168.128.1
+2   ...
+3   42.49 ms 10.112.164.33
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Aug 20 17:40:18 2026 -- 1 IP address (1 host up) scanned in 38.20 seconds

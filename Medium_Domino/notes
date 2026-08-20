@@ -1,0 +1,8 @@
+// Configuration (TODO: move to env before prod deployment - laura 2024-10-22)
+    const CONFIG = {
+        apiBase: '/api',
+        // Encryption key for backup config decryption - AES-ECB-128
+        // Key: N3xusK3y2024!!  (pad to 16 bytes with �)
+        _backupKey: 'N3xusK3y2024!!',
+        appVersion: '2.3.1'
+    };

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<title>NexusCorp - Our Team</title>
+<link rel=stylesheet href=/static/style.css>
+<style>
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.team-card { background: #1a1d2e; border: 1px solid #2d3148; border-radius: 12px; padding: 1.5rem; }
+.team-card .avatar { width: 56px; height: 56px; border-radius: 50%; background: #6c63ff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+.team-card h3 { font-size: 1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.25rem; }
+.team-card .role { font-size: 0.82rem; color: #6c63ff; margin-bottom: 0.5rem; }
+.team-card .dept { font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem; }
+.team-card .email { font-size: 0.82rem; color: #94a3b8; font-family: monospace; }
+.team-card .email a { color: #94a3b8; text-decoration: none; }
+.team-card .email a:hover { color: #6c63ff; }
+.page-header { border-bottom: 1px solid #2d3148; padding-bottom: 1rem; margin-bottom: 0.5rem; }
+.page-header h1 { font-size: 1.6rem; }
+.page-header p { color: #64748b; font-size: 0.9rem; margin-top: 0.4rem; }
+</style>
+</head>
+<body>
+<nav class=navbar>
+  <div class=nav-brand><span style=color:#6c63ff>&#9650;</span> NexusCorp</div>
+  <div class=nav-links>
+    <a href=/index.php>Employee Login</a>
+    <a href=/team.php style=color:#e2e8f0>Our Team</a>
+  </div>
+</nav>
+<div class=container>
+  <div class=page-header>
+    <h1>Our Team</h1>
+    <p>Meet the people behind NexusCorp's mission to deliver secure, innovative solutions.</p>
+  </div>
+  <div class=team-grid>
+
+    <div class=team-card>
+      <div class=avatar>LH</div>
+      <h3>Laura Hayes</h3>
+      <div class=role>Chief Information Officer</div>
+      <div class=dept>Executive Leadership</div>
+      <div class=email><a href=mailto:laura.hayes@nexus.corp>laura.hayes@nexus.corp</a></div>
+    </div>
+
+    <div class=team-card>
+      <div class=avatar>MC</div>
+      <h3>Michael Chen</h3>
+      <div class=role>Lead Security Engineer</div>
+      <div class=dept>Information Security</div>
+      <div class=email><a href=mailto:michael.chen@nexus.corp>michael.chen@nexus.corp</a></div>
+    </div>
+
+    <div class=team-card>
+      <div class=avatar>SJ</div>
+      <h3>Sarah Johnson</h3>
+      <div class=role>Senior Software Engineer</div>
+      <div class=dept>Engineering</div>
+      <div class=email><a href=mailto:sarah.johnson@nexus.corp>sarah.johnson@nexus.corp</a></div>
+    </div>
+
+    <div class=team-card>
+      <div class=avatar>RW</div>
+      <h3>Robert Wilson</h3>
+      <div class=role>DevOps Engineer</div>
+      <div class=dept>Infrastructure</div>
+      <div class=email><a href=mailto:robert.wilson@nexus.corp>robert.wilson@nexus.corp</a></div>
+    </div>
+
+    <div class=team-card>
+      <div class=avatar>ET</div>
+      <h3>Emma Taylor</h3>
+      <div class=role>Product Manager</div>
+      <div class=dept>Product</div>
+      <div class=email><a href=mailto:emma.taylor@nexus.corp>emma.taylor@nexus.corp</a></div>
+    </div>
+
+    <div class=team-card>
+      <div class=avatar>DB</div>
+      <h3>David Brown</h3>
+      <div class=role>Full Stack Developer</div>
+      <div class=dept>Engineering</div>
+      <div class=email><a href=mailto:david.brown@nexus.corp>david.brown@nexus.corp</a></div>
+    </div>
+
+    <div class=team-card>
+      <div class=avatar>JW</div>
+      <h3>James Wright</h3>
+      <div class=role>Systems Administrator</div>
+      <div class=dept>Infrastructure</div>
+      <div class=email><a href=mailto:james.wright@nexus.corp>james.wright@nexus.corp</a></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
