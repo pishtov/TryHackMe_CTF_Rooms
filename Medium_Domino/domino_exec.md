@@ -29,7 +29,7 @@ The target was:
 I used Nmap with default scripts, service detection, and output logging:
 
 ```bash
-sudo nmap -sC -sV -p 22,80 10.112.151.132 -oN svc.nmap
+sudo nmap -sC -sV -p 10.112.151.132 -oN nmap.txt
 ```
 
 The scan revealed two accessible services:
