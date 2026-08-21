@@ -1,6 +1,6 @@
-# TryHackMe — NexusCorp Portal
+# TryHackMe — Domino
 
-This walkthrough describes the complete attack path for the **NexusCorp Portal** TryHackMe room.
+This walkthrough describes the complete attack path for the **Domino** TryHackMe room.
 
 The room involves web enumeration, credential discovery, password spraying/dictionary attacks, IDOR, stored XSS, session hijacking, JWT manipulation, Remote File Inclusion (RFI), reverse-shell access, credential reuse, and cron-based privilege escalation.
 
