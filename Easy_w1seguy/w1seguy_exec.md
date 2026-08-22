@@ -1,250 +1,279 @@
-TryHackMe — W1seGuy
+# TryHackMe — W1seGuy
 
-This file describes all steps used to complete the TryHackMe W1seGuy room.
+> **Category:** Cryptography / Source Code Analysis
+> **Difficulty:** Easy
+> **Target:** `10.112.146.85:1337`
 
-The room involves source-code analysis, TCP enumeration, XOR encryption, known-plaintext attacks, and repeating-key cryptography.
+---
 
-We first connect to the TCP service, analyze the provided source code, identify the repeating 5-character XOR key, recover the key using known plaintext, and submit the key to obtain the second flag.
+## Overview
 
-Difficulty: Easy
+This room involves source-code analysis, TCP enumeration, XOR encryption, known-plaintext attacks, and repeating-key cryptography.
 
-MACHINE-IP: 10.112.146.85
+**Attack summary:** connect to the TCP service, analyze the provided source code, identify the repeating 5-character XOR key, recover the key using known plaintext, and submit it to obtain the second flag.
 
-PORT: 1337
+| Detail | Value |
+|---|---|
+| Machine IP | `10.112.146.85` |
+| Port | `1337` |
+| Vulnerability | Repeating-key XOR + known plaintext |
+| Key length | 5 characters |
 
-Source Code Analysis
+---
+
+## Step 1 — Source Code Analysis
 
 The provided source code immediately showed how the challenge worked.
 
-The server listens on:
+**The server listens on:**
 
+```python
 socketserver.ThreadingTCPServer(('0.0.0.0', 1337), RequestHandler)
+```
 
-Therefore, the service can be accessed with:
+This means the service can be reached with:
 
+```bash
 nc 10.112.146.85 1337
+```
 
-The important part of the encryption function was:
+**The encryption routine:**
 
-for i in range(0,len(flag)):
-    xored += chr(ord(flag[i]) ^ ord(key[i%len(key)]))
+```python
+for i in range(0, len(flag)):
+    xored += chr(ord(flag[i]) ^ ord(key[i % len(key)]))
+```
 
-This tells us that the flag is encrypted using XOR.
+This confirms the flag is encrypted using XOR.
 
-The key is generated here:
+**The key generation:**
 
+```python
 res = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
 key = str(res)
+```
 
-Therefore, the encryption key is:
+So the encryption key is:
 
-Exactly 5 characters
-Randomly generated
-Made from letters and numbers
+- Exactly 5 characters
+- Randomly generated
+- Made from letters and digits
 
-The following line is especially important:
+The critical line is `key[i % len(key)]` — because the key length is 5, it repeats indefinitely:
 
-key[i%len(key)]
-
-Because the key length is 5, the same key is repeatedly used:
-
+```
 ABCDEABCDEABCDEABCDE...
-Connecting to the Server
+```
 
-I connected to the service using Netcat:
+---
 
+## Step 2 — Connecting to the Server
+
+```bash
 nc 10.112.146.85 1337
+```
 
-The server returned something similar to:
+The server responded with something similar to:
 
+```
 This XOR encoded text has flag 1: 17300a2a2072192b3f240600331024374c243a3302163562312f343e3905310c3e6125310008232d
 What is the encryption key?
+```
 
-The server then waited for the encryption key.
+The server then waits for the encryption key — at this point, guessing was not an option.
 
-At this point, I did not guess the key.
+---
 
-Understanding the XOR Encryption
+## Step 3 — Understanding the XOR Encryption
 
 The encryption operation is:
 
+```
 plaintext XOR key = ciphertext
-
-XOR has an important property:
-
-ciphertext XOR plaintext = key
-
-This means that if we know part of the original plaintext, we can recover the corresponding part of the key.
-
-This is known as a known-plaintext attack.
-
-Known Plaintext
-
-The source code gives us an important clue:
-
-flag = 'THM{thisisafakeflag}'
-
-The challenge also uses the standard TryHackMe flag format:
-
-THM{...}
-
-The actual plaintext used by the running challenge was:
-
-THM{p1alntExtAtt4ckcAnr3alLyhUrty0urxOr}
-
-Because we know the plaintext and have the encrypted ciphertext, we can XOR the two together.
-
-For example:
-
-Ciphertext:
-17 30 0a 2a ...
-
-Plaintext:
-54 48 4d 7b ...
-
-XOR:
-43 78 47 51 ...
-
-The resulting bytes reveal the repeating key.
-
-Recovering the 5-Character Key
-
-The key is only five characters long.
-
-Therefore, once the first five key characters are recovered, they repeat throughout the ciphertext:
-
-KEY12KEY12KEY12KEY12...
-
-For the successful connection, the recovered key was:
-
-CxGQP
-
-The important thing is that the key belongs to the specific TCP connection that generated the ciphertext.
-
-Every time a new connection is created, this code runs again:
-
-res = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
-
-Therefore:
-
-Connection 1 → random key A
-Connection 2 → random key B
-Connection 3 → random key C
-
-A key recovered from one connection cannot be used on another connection.
-
-Submitting the Key
-
-While the original Netcat connection was still waiting at:
-
-What is the encryption key?
-
-I entered:
-
-CxGQP
-
-The server verifies the key using:
-
-if key_answer == key:
-
-When the key is correct, the server returns the second flag.
-
-This successfully completes the challenge.
-
-Why the Attack Works
-
-The vulnerability is caused by several weaknesses being combined.
-
-1. The encryption uses XOR
-flag[i] ^ key[i]
-
-XOR itself is not necessarily insecure, but its security depends heavily on how the key is used.
-
-2. The key is extremely short
-
-The key is only:
-
-5 characters
-3. The key is reused repeatedly
-
-The code uses:
-
-key[i%len(key)]
-
-which produces:
-
-ABCDEABCDEABCDEABCDE...
-4. We know the plaintext
-
-The flag format gives us known plaintext such as:
-
-THM{
-
-Therefore:
-
-ciphertext XOR known plaintext = key
-
-allows us to recover the key.
-
-Attack Chain
-
-The complete attack path was:
-
-10.112.146.85:1337
-        ↓
-Connect using Netcat
-        ↓
-Receive XOR ciphertext
-        ↓
-Analyze source code
-        ↓
-Identify repeating 5-character XOR key
-        ↓
-Use known plaintext
-        ↓
-Ciphertext XOR plaintext
-        ↓
-Recover encryption key
-        ↓
-Submit key to same TCP connection
-        ↓
-Receive Flag 2
-Key Lessons
-
-The main lesson from this room is that repeating-key XOR is vulnerable when the attacker knows or can predict part of the plaintext.
-
-The critical relationship is:
-
-Plaintext XOR Key = Ciphertext
+```
 
 Because XOR is reversible:
 
-Ciphertext XOR Plaintext = Key
-
-The five-character repeating key makes the problem even easier.
-
-The challenge therefore isn't about brute-forcing the entire keyspace. Instead, the source code and known plaintext allow the key to be recovered directly.
-
-Commands Used
-
-Connect to the challenge:
-
-nc 10.112.146.85 1337
-
-The important information obtained from the source code was:
-
-key = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
-
-and:
-
-flag[i] ^ key[i%len(key)]
-
-The key was recovered using:
-
+```
 ciphertext XOR plaintext = key
+```
 
-The recovered key for the successful connection was:
+If part of the plaintext is known, the corresponding part of the key can be recovered directly — a **known-plaintext attack**.
 
+---
+
+## Step 4 — Known Plaintext
+
+The source code contained a placeholder flag:
+
+```python
+flag = 'THM{thisisafakeflag}'
+```
+
+Combined with TryHackMe's standard flag format `THM{...}`, this gives a reliable known-plaintext anchor.
+
+The actual plaintext used by the running challenge was:
+
+```
+THM{p1alntExtAtt4ckcAnr3alLyhUrty0urxOr}
+```
+
+With both plaintext and ciphertext known, XOR-ing them together recovers the key bytes:
+
+```
+Ciphertext:  17 30 0a 2a ...
+Plaintext:   54 48 4d 7b ...
+XOR:         43 78 47 51 ...
+```
+
+---
+
+## Step 5 — Recovering the 5-Character Key
+
+Since the key is only five characters long, the first five recovered bytes repeat throughout the entire ciphertext:
+
+```
+KEY12KEY12KEY12KEY12...
+```
+
+**Recovered key for this connection:**
+
+```
 CxGQP
+```
+
+> **Important:** The key is unique to the specific TCP connection that generated the ciphertext. Every new connection re-runs the key generator:
+>
+> ```python
+> res = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
+> ```
+>
+> | Connection | Key |
+> |---|---|
+> | 1 | Random key A |
+> | 2 | Random key B |
+> | 3 | Random key C |
+>
+> A key recovered from one connection **cannot** be reused on another.
+
+---
+
+## Step 6 — Submitting the Key
+
+While the original Netcat connection was still waiting at:
+
+```
+What is the encryption key?
+```
+
+The recovered key was entered:
+
+```
+CxGQP
+```
+
+The server verifies it with:
+
+```python
+if key_answer == key:
+```
+
+Since the key matched, the server returned **Flag 2**, completing the challenge.
+
+---
+
+## Why the Attack Works
+
+The vulnerability results from several weaknesses stacked together:
+
+1. **XOR encryption** — `flag[i] ^ key[i]`. XOR isn't inherently insecure, but its safety depends entirely on key usage.
+2. **Extremely short key** — only 5 characters.
+3. **Key reuse** — `key[i % len(key)]` produces an obviously repeating pattern:
+   ```
+   ABCDEABCDEABCDEABCDE...
+   ```
+4. **Known plaintext** — the `THM{` flag format gives an immediate anchor:
+   ```
+   ciphertext XOR known plaintext = key
+   ```
+
+---
+
+## Attack Chain
+
+```
+10.112.146.85:1337
+        |
+        v
+Connect using Netcat
+        |
+        v
+Receive XOR ciphertext
+        |
+        v
+Analyze source code
+        |
+        v
+Identify repeating 5-character XOR key
+        |
+        v
+Use known plaintext
+        |
+        v
+Ciphertext XOR plaintext
+        |
+        v
+Recover encryption key
+        |
+        v
+Submit key to same TCP connection
+        |
+        v
+Receive Flag 2
+```
+
+---
+
+## Key Lessons
+
+Repeating-key XOR is vulnerable whenever an attacker knows or can predict part of the plaintext.
+
+The core relationship:
+
+```
+Plaintext XOR Key = Ciphertext
+Ciphertext XOR Plaintext = Key   (since XOR is reversible)
+```
+
+A five-character repeating key makes exploitation trivial — this challenge isn't about brute-forcing the keyspace; the source code plus known plaintext let the key be recovered directly.
+
+---
+
+## Commands Used
+
+**Connect to the challenge:**
+
+```bash
+nc 10.112.146.85 1337
+```
+
+**Key details pulled from source:**
+
+```python
+key = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
+flag[i] ^ key[i % len(key)]
+```
+
+**Key recovery relation:**
+
+```
+ciphertext XOR plaintext = key
+```
+
+**Recovered key:**
+
+```
+CxGQP
+```
 
 Entering that key into the same Netcat session returned the second flag.
