@@ -1,0 +1,101 @@
+# Nmap 7.99 scan initiated Sat Aug 22 18:09:34 2026 as: /usr/lib/nmap/nmap --privileged -sV -p- -A -Pn -oN nmap.txt 10.112.146.85
+Nmap scan report for 10.112.146.85
+Host is up (0.041s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 62:b3:58:a2:56:de:e3:ea:e1:71:bc:26:69:8f:d5:ac (RSA)
+|   256 5e:ac:58:4b:8c:e5:f3:b0:9b:3a:34:1d:05:07:43:da (ECDSA)
+|_  256 0f:f6:b5:ea:2e:1c:e0:37:60:5a:7c:1e:f7:0a:21:f0 (ED25519)
+1337/tcp open  waste?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP: 
+|     This XOR encoded text has flag 1: 622e020d3b070723183f731e3b373f42522c1d2877083d452a5a2a361e1e441236463e441e000436
+|     What is the encryption key? Close but no cigar
+|   DNSVersionBindReqTCP: 
+|     This XOR encoded text has flag 1: 3d3b063f3d5812272a392c0b3f05391d47282f2e281d39772c053f322c181b073274381b0b043630
+|     What is the encryption key? Nope nope nope
+|   GenericLines: 
+|     This XOR encoded text has flag 1: 3e390c333b5b102d263f2f0935093f1e452223282b1f337b2a063d38201e180538783e18090e3a36
+|     What is the encryption key? Close but no cigar
+|   GetRequest: 
+|     This XOR encoded text has flag 1: 032d004a066604215f02121d39700223512e5a15160b3f02173b293459232511340103251d02430b
+|     What is the encryption key? Close but no cigar
+|   HTTPOptions: 
+|     This XOR encoded text has flag 1: 151d7409387034551c3c042d4d333c35615a192b003b4b41292d19401a1d332140423d332d760035
+|     What is the encryption key? Nope nope nope
+|   Help: 
+|     This XOR encoded text has flag 1: 07093b4e1862201a5b1c163902741c2775155e0b122f0406093f0d0f5d3d21350f051d2139394715
+|     What is the encryption key? Nope nope nope
+|   NULL: 
+|     This XOR encoded text has flag 1: 3e390c333b5b102d263f2f0935093f1e452223282b1f337b2a063d38201e180538783e18090e3a36
+|     What is the encryption key?
+|   RPCCheck: 
+|     This XOR encoded text has flag 1: 2d123b0921483b1a1c253c220233250d6e151932383404413015160f1a040b2e0f42240b2239002c
+|     What is the encryption key?
+|   RTSPRequest: 
+|     This XOR encoded text has flag 1: 351039223f503918373b242000183b156c17322c2036066a2e0d140d311a132c0d693a13203b2b32
+|     What is the encryption key? Nope nope nope
+|   SSLSessionReq: 
+|     This XOR encoded text has flag 1: 0d3e261f206817070a241c0e1f25242d42080f331818195731353a120c052b021254252b0e24162d
+|_    What is the encryption key?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port1337-TCP:V=7.99%I=7%D=8/22%Time=6A89BBC5%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,8F,"This\x20XOR\x20encoded\x20text\x20has\x20flag\x201:\x203e390c333
+SF:b5b102d263f2f0935093f1e452223282b1f337b2a063d38201e180538783e18090e3a36
+SF:\nWhat\x20is\x20the\x20encryption\x20key\?\x20")%r(GenericLines,A2,"Thi
+SF:s\x20XOR\x20encoded\x20text\x20has\x20flag\x201:\x203e390c333b5b102d263
+SF:f2f0935093f1e452223282b1f337b2a063d38201e180538783e18090e3a36\nWhat\x20
+SF:is\x20the\x20encryption\x20key\?\x20Close\x20but\x20no\x20cigar\n")%r(G
+SF:etRequest,A2,"This\x20XOR\x20encoded\x20text\x20has\x20flag\x201:\x2003
+SF:2d004a066604215f02121d39700223512e5a15160b3f02173b293459232511340103251
+SF:d02430b\nWhat\x20is\x20the\x20encryption\x20key\?\x20Close\x20but\x20no
+SF:\x20cigar\n")%r(HTTPOptions,9E,"This\x20XOR\x20encoded\x20text\x20has\x
+SF:20flag\x201:\x20151d7409387034551c3c042d4d333c35615a192b003b4b41292d194
+SF:01a1d332140423d332d760035\nWhat\x20is\x20the\x20encryption\x20key\?\x20
+SF:Nope\x20nope\x20nope\n")%r(RTSPRequest,9E,"This\x20XOR\x20encoded\x20te
+SF:xt\x20has\x20flag\x201:\x20351039223f503918373b242000183b156c17322c2036
+SF:066a2e0d140d311a132c0d693a13203b2b32\nWhat\x20is\x20the\x20encryption\x
+SF:20key\?\x20Nope\x20nope\x20nope\n")%r(RPCCheck,8F,"This\x20XOR\x20encod
+SF:ed\x20text\x20has\x20flag\x201:\x202d123b0921483b1a1c253c220233250d6e15
+SF:1932383404413015160f1a040b2e0f42240b2239002c\nWhat\x20is\x20the\x20encr
+SF:yption\x20key\?\x20")%r(DNSVersionBindReqTCP,9E,"This\x20XOR\x20encoded
+SF:\x20text\x20has\x20flag\x201:\x203d3b063f3d5812272a392c0b3f05391d47282f
+SF:2e281d39772c053f322c181b073274381b0b043630\nWhat\x20is\x20the\x20encryp
+SF:tion\x20key\?\x20Nope\x20nope\x20nope\n")%r(DNSStatusRequestTCP,A2,"Thi
+SF:s\x20XOR\x20encoded\x20text\x20has\x20flag\x201:\x20622e020d3b070723183
+SF:f731e3b373f42522c1d2877083d452a5a2a361e1e441236463e441e000436\nWhat\x20
+SF:is\x20the\x20encryption\x20key\?\x20Close\x20but\x20no\x20cigar\n")%r(H
+SF:elp,9E,"This\x20XOR\x20encoded\x20text\x20has\x20flag\x201:\x2007093b4e
+SF:1862201a5b1c163902741c2775155e0b122f0406093f0d0f5d3d21350f051d213939471
+SF:5\nWhat\x20is\x20the\x20encryption\x20key\?\x20Nope\x20nope\x20nope\n")
+SF:%r(SSLSessionReq,8F,"This\x20XOR\x20encoded\x20text\x20has\x20flag\x201
+SF::\x200d3e261f206817070a241c0e1f25242d42080f331818195731353a120c052b0212
+SF:54252b0e24162d\nWhat\x20is\x20the\x20encryption\x20key\?\x20");
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.99%E=4%D=8/22%OT=22%CT=1%CU=33442%PV=Y%DS=3%DC=T%G=Y%TM=6A89BBD
+OS:8%P=x86_64-pc-linux-gnu)SEQ(SP=103%GCD=1%ISR=10E%TI=Z%CI=Z%II=I%TS=A)SEQ
+OS:(SP=105%GCD=1%ISR=107%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=105%GCD=1%ISR=10C%TI=Z%
+OS:CI=Z%II=I%TS=A)SEQ(SP=106%GCD=1%ISR=107%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=107%G
+OS:CD=1%ISR=10A%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M4E8ST11NW7%O2=M4E8ST11NW7%O3=M4
+OS:E8NNT11NW7%O4=M4E8ST11NW7%O5=M4E8ST11NW7%O6=M4E8ST11)WIN(W1=F4B3%W2=F4B3
+OS:%W3=F4B3%W4=F4B3%W5=F4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M4E8NNSNW7%C
+OS:C=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%
+OS:T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD
+OS:=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S
+OS:=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK
+OS:=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 3 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 199/tcp)
+HOP RTT      ADDRESS
+1   41.42 ms 192.168.128.1
+2   ...
+3   41.01 ms 10.112.146.85
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Aug 22 18:10:16 2026 -- 1 IP address (1 host up) scanned in 42.49 seconds
