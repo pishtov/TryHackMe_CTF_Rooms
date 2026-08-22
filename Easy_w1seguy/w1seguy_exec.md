@@ -114,9 +114,10 @@ Combined with TryHackMe's standard flag format `THM{...}`, this gives a reliable
 
 The actual plaintext used by the running challenge was:
 
-```
+<details>
+<summary>Spoiler Alert! (Flag 1)</summary>
 THM{p1alntExtAtt4ckcAnr3alLyhUrty0urxOr}
-```
+</details>
 
 With both plaintext and ciphertext known, XOR-ing them together recovers the key bytes:
 
@@ -179,6 +180,11 @@ if key_answer == key:
 ```
 
 Since the key matched, the server returned **Flag 2**, completing the challenge.
+
+<details>
+<summary>Spoiler Alert! (Flag 2)</summary>
+THM{BrUt3_ForC1nG_XOR_cAn_B3_FuN_nO?}
+</details>
 
 ---
 
