@@ -4,3 +4,5 @@ sarah.johnson
 robert.wilson
 david.brown
 james.wright
+
+<!-- User names to use for passwd brute force -->
