@@ -1,5 +1,6 @@
-well this room was completed faster than I expected.
-## Difficulty - super giga mega easy lol
+well this room was completed faster than I expected. Room - Neighbor
+
+## Difficulty - Easy
 
 ---
 
