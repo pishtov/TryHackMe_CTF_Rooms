@@ -62,50 +62,38 @@ The comment revealed a set of default credentials:
 
 The message also indicated that these were intended to be changed after the first login, but that users often forgot to rotate them.
 
-I tried the credentials against the login form.
-
-They worked.
-
+I tried the credentials against the login form and I got in.
 I was now authenticated to the Byte Lotus display-management portal.
 
-Display Manager Dashboard
+---
+
+## Display Manager Dashboard
 
 After logging in, I was presented with the main dashboard.
-
 The most interesting functionality was the ability to upload a shell.
 
 The application described a shell as a ZIP archive containing a manifest named:
 
-shell.json
-
+`shell.json`
 
 The dashboard also provided some information about how shells were processed.
 
 The important details were:
 
-Shell format: ZIP
-Required manifest: shell.json
+Shell format: `ZIP`
+Required manifest: `shell.json`
 Allowed assets:
-png
-jpg
-gif
-svg
-css
-json
+png, jpg, gif, svg, css, json
 
-
-There was also an interesting reference to:
-
-automation hooks
-
+There was also an interesting reference to automation hooks
 
 The dashboard explained that optional automation hooks were applied by a background theme worker after the shell was uploaded.
-
 This suggested that the upload functionality might involve more than simply storing static files.
-
 I therefore began testing exactly how the upload functionality behaved.
 
-Shell Upload Testing
+---
+
+## Shell Upload Testing
 
 I created a minimal ZIP archive containing only a shell.json file.
 
@@ -113,37 +101,23 @@ My first manifest was:
 
 {}
 
-
 The application rejected it with an error indicating that the name field was missing.
 
 I then created:
 
-{
-	"name": "test-shell"
-}
-
+`{"name":"test-shell"}`
 
 This time the upload was accepted.
 
 I continued experimenting with the manifest and added an empty hooks array:
 
-{
-	"name": "test-shell",
-	"hooks": []
-}
-
+`{"name":"test-shell","hooks":[]}`
 
 This was also accepted.
 
 I then tried:
 
-{
-	"name": "test-shell",
-	"hooks": [
-		{}
-	]
-}
-
+`{"name":"test-shell","hooks":[		{}	]}`
 
 This was accepted as well.
 
@@ -155,55 +129,48 @@ run
 exec
 cmd
 
-
 The values were stored by the application, but nothing appeared to execute.
 
 This suggested that the hooks field inside shell.json was not itself enough to trigger command execution.
-
 I therefore changed direction and began investigating how the ZIP archive was extracted.
 
-Zip Slip
+---
 
-Because the application accepted user-controlled ZIP archives, one of the first things I wanted to test was whether the extraction process protected against path traversal.
+## Zip Slip
+
+Because the application accepted user-controlled ZIP archives, one of the first things I wanted to test was whether the
+extraction process protected against path traversal.
 
 I created a ZIP containing a legitimate shell.json along with a deliberately malicious filename:
 
-../../static/hello_from_zip.txt
-
+`../../static/hello_from_zip.txt`
 
 I uploaded the archive through the dashboard.
-
 The file was successfully extracted.
-
 I was then able to access the planted file through:
 
 http://10.114.180.237:5000/shells/static/hello_from_zip.txt
-
 
 After a short delay, the file was also accessible directly under:
 
 /static/
 
-
 This confirmed that the archive extraction was vulnerable to Zip Slip.
-
 The important discovery was that the ZIP extraction process allowed ../ path traversal.
+The directory structure effectively allowed me to escape the individual shell directory and write elsewhere within the 
+application.
 
-The directory structure effectively allowed me to escape the individual shell directory and write elsewhere within the application.
-
-Understanding the Extraction Path
+## Understanding the Extraction Path
 
 The successful traversal allowed me to determine more about the application's filesystem layout.
 
 The shell itself was stored under a directory similar to:
 
-shells/<shell-id>/
-
+`shells/<shell-id>/`
 
 Using:
 
-../../
-
+`../../`
 
 allowed me to escape the shell directory and reach the application root.
 
@@ -213,14 +180,12 @@ shells/
 static/
 hooks/
 
-
 were likely sibling directories beneath the application root.
-
 The static/ directory was already confirmed through the Zip Slip test.
+The remaining question was whether I could use the same primitive to write somewhere that would actually be processed by the 
+application.
 
-The remaining question was whether I could use the same primitive to write somewhere that would actually be processed by the application.
-
-Dead Ends
+## Dead Ends
 
 I spent some time testing several possible ways of turning the arbitrary file-write primitive into code execution.
 
@@ -228,7 +193,8 @@ One obvious idea was to upload a PHP web shell.
 
 That did not work.
 
-The target was running a Python/Gunicorn application, meaning that placing a .php file somewhere under the web root would simply result in the file being served as static content rather than executed by PHP.
+The target was running a Python/Gunicorn application, meaning that placing a .php file somewhere under the web root would simply 
+result in the file being served as static content rather than executed by PHP.
 
 I also tried placing files exclusively under:
 
