@@ -1,0 +1,17 @@
+# Nmap 7.98 scan initiated Sat Aug 29 18:40:18 2026 as: nmap -sV -sC -oN nmap.txt 10.114.180.237
+Nmap scan report for 10.114.180.237
+Host is up (0.073s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.18 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 d1:a0:d0:8e:65:9b:1a:2e:06:69:6b:23:a9:b0:30:89 (ECDSA)
+|_  256 a6:ef:99:64:bd:77:6d:57:ce:bd:fb:73:92:5c:fe:30 (ED25519)
+5000/tcp open  http    Gunicorn
+|_http-server-header: gunicorn
+| http-title: Byte Lotus \xE2\x80\x94 Room Service
+|_Requested resource was /login
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Aug 29 18:40:30 2026 -- 1 IP address (1 host up) scanned in 11.98 seconds
