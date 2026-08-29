@@ -8,7 +8,7 @@ The attack begins with enumeration of the web application and progresses from ha
 
 Difficulty — Medium
 
-MACHINE-IP: 10.114.180.237
+ `MACHINE-IP: 10.114.180.237`
 
 ATTACKER-IP: 192.168.134.177
 
