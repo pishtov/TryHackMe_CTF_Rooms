@@ -1,7 +1,7 @@
-##TryHackMe — The Hollow Shell
+# TryHackMe — The Hollow Shell
 ---
 
-# This walkthrough describes the complete attack path for the The Hollow Shell TryHackMe room.
+## This walkthrough describes the complete attack path for the The Hollow Shell TryHackMe room.
 
 The room involves network enumeration, web application reconnaissance, source-code inspection, default credential discovery, insecure ZIP extraction, Zip Slip path traversal, and abuse of a background automation worker to obtain remote code execution.
 
@@ -9,45 +9,40 @@ The attack begins with enumeration of the web application and progresses from ha
 
 Difficulty — Medium
 
+---
+
 `MACHINE-IP: 10.114.180.237`
 
 `ATTACKER-IP: 192.168.134.177`
 
-Initial Access
-Scanning
+## Initial Access Scanning
 
 I started by enumerating the open TCP ports and identifying the services running on the target.
 
 The target was:
 
-10.114.180.237
-
+`10.114.180.237`
 
 I used Nmap with default scripts, service detection, and a full TCP port scan:
-
-nmap -sC -sV -p- 10.114.180.237
-
+`nmap -sC -sV -p- 10.114.180.237`
 
 The scan revealed two accessible services:
 
-22/tcp — SSH
-5000/tcp — Gunicorn web application
-
+`22/tcp — SSH`
+`5000/tcp — Gunicorn web application`
 
 SSH was exposed, but I had no credentials for it yet, so I focused my attention on the web application running on port 5000.
 
 I opened:
-
 http://10.114.180.237:5000
-
 
 This presented a login page for the Byte Lotus internal display-manager portal.
 
-Web Enumeration
+## Web Enumeration
 
 The login page itself did not immediately reveal any credentials.
 
-I decided to inspect the page source for comments, JavaScript, and other information that might have been accidentally exposed by the developers.
+I decided to try some obvious creds like admin:admin, user:password but didn't bother to keep going so went for the page source to look for comments, JavaScript, and other information that might have been accidentally exposed by the developers.
 
 This turned out to be the right approach.
 
@@ -60,12 +55,10 @@ user: concierge
 pass: StayNoticed2024!
 (rotate it from Settings on first sign-in — most people forget) -->
 
-
 The comment revealed a set of default credentials:
 
-Username: concierge
-Password: StayNoticed2024!
-
+`Username: concierge`
+`Password: StayNoticed2024!`
 
 The message also indicated that these were intended to be changed after the first login, but that users often forgot to rotate them.
 
