@@ -198,18 +198,19 @@ I also tried placing files exclusively under:
 `/shells/static/`
 
 Those files were reachable, but nothing executed them.
-
 The hooks array inside shell.json was another dead end.
 
-Although the application accepted and stored values in the array, none of the command-related values I supplied caused a command to execute.
+Although the application accepted and stored values in the array, none of the command-related values I supplied caused a command 
+to execute. At this point, I knew I had an arbitrary file-write primitive within the application root, but I still needed to
+determine what location the background worker actually monitored.
 
-At this point, I knew I had an arbitrary file-write primitive within the application root, but I still needed to determine what location the background worker actually monitored.
+---
 
-Discovering the Theme Worker
+## Discovering the Theme Worker
 
 I went back to the wording used by the dashboard:
 
-Optional automation hooks are applied by a background theme worker.
+`Optional automation hooks are applied by a background theme worker.`
 
 
 The phrase automation hooks suggested that the worker might not be executing commands directly from the JSON manifest.
