@@ -188,18 +188,14 @@ application.
 ## Dead Ends
 
 I spent some time testing several possible ways of turning the arbitrary file-write primitive into code execution.
-
-One obvious idea was to upload a PHP web shell.
-
-That did not work.
+One obvious idea was to upload a PHP web shell which actually did NOT work.
 
 The target was running a Python/Gunicorn application, meaning that placing a .php file somewhere under the web root would simply 
 result in the file being served as static content rather than executed by PHP.
 
 I also tried placing files exclusively under:
 
-/shells/static/
-
+`/shells/static/`
 
 Those files were reachable, but nothing executed them.
 
