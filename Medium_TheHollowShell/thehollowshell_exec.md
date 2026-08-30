@@ -212,47 +212,34 @@ I went back to the wording used by the dashboard:
 
 `Optional automation hooks are applied by a background theme worker.`
 
-
 The phrase automation hooks suggested that the worker might not be executing commands directly from the JSON manifest.
-
 Instead, it could be watching a specific directory for Python hook files.
 
 Since I had already established that:
 
-static/
-
+`static/`
 
 was a sibling of:
 
-shells/
-
+`shells/`
 
 I began looking for another sibling directory that matched the terminology used by the application.
 
 The obvious candidate was:
 
-hooks/
-
+`hooks/`
 
 I therefore created another ZIP archive.
+This time, instead of writing into `static/`, I used Zip Slip to place a Python file at:
 
-This time, instead of writing into static/, I used Zip Slip to place a Python file at:
-
-../../hooks/poc.py
-
+../../hooks/exploit.py
 
 The archive still contained a valid shell.json:
 
-{
-	"name": "python-test",
-	"assets": []
-}
-
+`{"name": "python-test","assets": []}`
 
 I uploaded the archive through the dashboard.
-
 The Python file appeared in the expected location.
-
 More importantly, shortly afterward the theme worker executed the file.
 
 This was the missing piece.
