@@ -243,12 +243,10 @@ The Python file appeared in the expected location.
 More importantly, shortly afterward the theme worker executed the file.
 
 This was the missing piece.
-
 The worker was monitoring the hooks/ directory and automatically executing Python files placed there.
-
 I now had a reliable path from the web application's file-upload functionality to remote code execution.
 
-Remote Code Execution
+## Remote Code Execution
 
 The exploitation chain was now clear:
 
@@ -266,21 +264,21 @@ Theme Worker
 ↓
 Code Execution
 
-
 The remaining step was to turn this code execution into an interactive shell.
 
 I prepared a Python reverse-shell payload.
 
 My attacking machine was:
 
-192.168.134.177
-
+`192.168.134.177`
 
 I chose port:
 
-4444
+`4444`
 
-Reverse Shell
+---
+
+## Reverse Shell
 
 I started a Netcat listener on my attacking machine:
 
