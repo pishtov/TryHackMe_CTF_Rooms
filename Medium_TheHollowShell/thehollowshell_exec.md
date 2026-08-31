@@ -269,9 +269,7 @@ The exploitation chain was now clear:
 ---
 
 The remaining step was to turn this code execution into an interactive shell.
-
 I prepared a Python reverse-shell payload.
-
 My attacking machine was:
 
 `192.168.134.177`
@@ -337,114 +335,115 @@ I confirmed the current user:
 	
 The result was:
 	
-	roomservice
+roomservice
 	
+This confirmed successful remote code execution and operating-system access.
 	
-	This confirmed successful remote code execution and operating-system access.
+The complete exploitation path to this point was:
 	
-	The complete exploitation path to this point was:
+Default Credentials
+↓
+Byte Lotus Dashboard
+↓
+Shell Upload
+↓
+Zip Slip
+↓
+Arbitrary File Write
+↓
+../../hooks/shell.py
+↓
+Theme Worker
+↓
+Python Execution
+↓
+Reverse Shell
+↓
+roomservice
+
+---
+
+## Reading the Flag
+
+With a shell as roomservice, I checked the user's home directory:
+
+ls -la /home/roomservice
+
+
+The flag was present at:
+
+/home/roomservice/flag.txt
+
+
+I read it with:
+
+cat /home/roomservice/flag.txt
+
+
+This completed the main attack path.
+
+Room Completed
+
+The room was completed by chaining together several weaknesses in the Byte Lotus application.
 	
-	Default Credentials
-	↓
-	Byte Lotus Dashboard
-	↓
-	Shell Upload
-	↓
-	Zip Slip
-	↓
-	Arbitrary File Write
-	↓
-	../../hooks/shell.py
-	↓
-	Theme Worker
-	↓
-	Python Execution
-	↓
-	Reverse Shell
-	↓
-	roomservice
-	
-	Reading the Flag
-	
-	With a shell as roomservice, I checked the user's home directory:
-	
-	ls -la /home/roomservice
-	
-	
-	The flag was present at:
-	
-	/home/roomservice/flag.txt
-	
-	
-	I read it with:
-	
-	cat /home/roomservice/flag.txt
-	
-	
-	This completed the main attack path.
-	
-	Room Completed
-	
-	The room was completed by chaining together several weaknesses in the Byte Lotus application.
-	
-	The complete attack path was:
-	
-	Scan the target with Nmap.
-	Discover SSH and the Gunicorn application on port 5000.
-	Enumerate the Byte Lotus login page.
-	Inspect the page source.
-	Discover the hardcoded concierge credentials.
-	Authenticate to the display-manager portal.
-	Investigate the shell-upload functionality.
-	Determine that shell.json required a name field.
-	Test the hooks functionality.
-	Determine that hook values alone did not trigger execution.
-	Test ZIP extraction for path traversal.
-	Confirm a Zip Slip vulnerability.
-	Use ../../ to escape the shell extraction directory.
-	Determine that static/ was reachable outside the shell directory.
-	Identify the hooks/ directory as the likely worker location.
-	Write a Python proof-of-concept to ../../hooks/poc.py.
-	Confirm that the background theme worker executed the Python file.
-	Create a Python reverse shell.
-	Place it at ../../hooks/shell.py using Zip Slip.
-	Start a Netcat listener on the AttackBox.
-	Upload the malicious ZIP.
-	Wait for the theme worker to execute the payload.
-	Receive a reverse shell as roomservice.
-	Read /home/roomservice/flag.txt.
-	Final Attack Chain
-	Nmap Enumeration
-	↓
-	Gunicorn Web Application
-	↓
-	Source Code Inspection
-	↓
-	Hardcoded Credentials
-	↓
-	concierge
-	↓
-	Shell Upload
-	↓
-	ZIP Extraction
-	↓
-	Zip Slip
-	↓
-	Arbitrary File Write
-	↓
-	../../hooks/
-	↓
-	Python Hook
-	↓
-	Theme Worker
-	↓
-	Remote Code Execution
-	↓
-	Python Reverse Shell
-	↓
-	roomservice
-	↓
-	/home/roomservice/flag.txt
+The complete attack path was:
+
+Scan the target with Nmap.
+Discover SSH and the Gunicorn application on port 5000.
+Enumerate the Byte Lotus login page.
+Inspect the page source.
+Discover the hardcoded concierge credentials.
+Authenticate to the display-manager portal.
+Investigate the shell-upload functionality.
+Determine that shell.json required a name field.
+Test the hooks functionality.
+Determine that hook values alone did not trigger execution.
+Test ZIP extraction for path traversal.
+Confirm a Zip Slip vulnerability.
+Use ../../ to escape the shell extraction directory.
+Determine that static/ was reachable outside the shell directory.
+Identify the hooks/ directory as the likely worker location.
+Write a Python proof-of-concept to ../../hooks/poc.py.
+Confirm that the background theme worker executed the Python file.
+Create a Python reverse shell.
+Place it at ../../hooks/shell.py using Zip Slip.
+Start a Netcat listener on the AttackBox.
+Upload the malicious ZIP.
+Wait for the theme worker to execute the payload.
+Receive a reverse shell as roomservice.
+Read /home/roomservice/flag.txt.
+Final Attack Chain
+Nmap Enumeration
+↓
+Gunicorn Web Application
+↓
+Source Code Inspection
+↓
+Hardcoded Credentials
+↓
+concierge
+↓
+Shell Upload
+↓
+ZIP Extraction
+↓
+Zip Slip
+↓
+Arbitrary File Write
+↓
+../../hooks/
+↓
+Python Hook
+↓
+Theme Worker
+↓
+Remote Code Execution
+↓
+Python Reverse Shell
+↓
+roomservice
+↓
+/home/roomservice/flag.txt
 	
 	Conclusion
 	
