@@ -367,18 +367,17 @@ roomservice
 
 With a shell as roomservice, I checked the user's home directory:
 
-ls -la /home/roomservice
-
+`ls -la /home/roomservice`
 
 The flag was present at:
 
-/home/roomservice/flag.txt
-
+`/home/roomservice/flag.txt`
 
 I read it with:
 
-cat /home/roomservice/flag.txt
+`cat /home/roomservice/flag.txt`
 
+THM{z1p_sl1pp3d_1nt0_a_sh3ll}
 
 This completed the main attack path.
 
