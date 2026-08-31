@@ -250,19 +250,23 @@ I now had a reliable path from the web application's file-upload functionality t
 
 The exploitation chain was now clear:
 
-Authenticated Upload
+---
+
+`Authenticated Upload`
 ↓
-Malicious ZIP
+`Malicious ZIP`
 ↓
-Zip Slip
+`Zip Slip`
 ↓
-../../hooks/
+`../../hooks/`
 ↓
-Python Hook
+`Python Hook`
 ↓
-Theme Worker
+`Theme Worker`
 ↓
-Code Execution
+`Code Execution`
+
+---
 
 The remaining step was to turn this code execution into an interactive shell.
 
