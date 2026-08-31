@@ -377,9 +377,14 @@ I read it with:
 
 `cat /home/roomservice/flag.txt`
 
-THM{z1p_sl1pp3d_1nt0_a_sh3ll}
+<details>
+<summary>Spoiler Alert!</summary>
 
-This completed the main attack path.
+```text
+THM{z1p_sl1pp3d_1nt0_a_sh3ll}
+```
+
+</details>
 
 # Room Completed
 
