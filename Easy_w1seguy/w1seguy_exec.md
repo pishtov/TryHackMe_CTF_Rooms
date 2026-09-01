@@ -183,7 +183,7 @@ Since the key matched, the server returned **Flag 2**, completing the challenge.
 
 <details>
 <summary>Spoiler Alert! (Flag 2)</summary>
-THM{BrUt3_ForC1nG_XOR_cAn_B3_FuN_nO?}
+THM{pr0t0_p0lluted_th3_r3f3r33}
 </details>
 
 ---
