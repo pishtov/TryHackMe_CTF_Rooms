@@ -239,6 +239,11 @@ Checkmate
       ▼
 Flag
 ```
+<details>
+<summary>Spoiler Alert! (Flag 2)</summary>
+THM{pr0t0_p0lluted_th3_r3f3r33}
+</details>
+
 
 ---
 
